@@ -267,12 +267,10 @@ var getPhotosRoute = function (req, res, next) {
 // Just for testing purposes
 var helloRoute =function(req, res, next) {
     if(req.user) {
-        res.send("Hello " + req.user.username);
+        return res.send("Hello " + req.user.username);
     } else {
-        res.send("Hello unauthenticated user");
+        return res.send("Hello unauthenticated user");
     }
-
-    return next();
 };
 
 // Ensure Authentication for request middleware
