@@ -1,0 +1,17 @@
+# Compiled binary addons
+build/Release
+
+# Dependency directory
+node_modules
+
+# Ignore temporary backup files created by some editors
+*~
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
