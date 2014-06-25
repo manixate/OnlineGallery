@@ -172,6 +172,7 @@ function performLogin (req, res, user, next) {
         if (err) { 
             return next(err);
         }
+
         console.log(req.isAuthenticated());
         req.session.user_id = req.user.id;
 
@@ -194,7 +195,7 @@ var loginRoute = function(req, res, next) {
 
 	    // Technically, the user should exist at this point, but if not, check
 	    if(!user) {
-	    	return res.json(403, {success: false, message:"Please check your details and try again."});
+	    	return res.json(200, {success: false, message:"Please check your details and try again."});
 	    }
 
 	    return performLogin(req, res, user, next);
@@ -276,7 +277,7 @@ var helloRoute =function(req, res, next) {
 // Ensure Authentication for request middleware
 function ensureAuthenticated(req, res, next) {
 	if (req.isAuthenticated()) { return next() };
-	res.json(401, {message: "Please login again", error: "Invalid request"});
+	res.json(401, {succes: false, message: "Please login again", error: "Invalid request"});
 };
 
 // Routes
